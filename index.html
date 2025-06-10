@@ -26,9 +26,11 @@
         }
         .banner {
             position: relative;
-            height: 400px;
+            min-height: 200px; /* Minimum height to ensure content is visible */
             background: url('https://lifeinchrist.ca/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-15-at-11.19.23-AM-1.jpeg') no-repeat center center;
-            background-size: cover;
+            background-size: contain; /* Ensures the entire image is visible */
+            background-color: #f8f9fa; /* Fallback color */
+            width: 100%;
         }
         .banner-content {
             position: absolute;
@@ -72,13 +74,18 @@
         }
         @media (max-width: 768px) {
             .banner {
-                height: 250px;
+                min-height: 150px; /* Adjusted for smaller screens */
             }
             .banner-content h1 {
                 font-size: 24px;
             }
             .banner-content p {
                 font-size: 16px;
+            }
+        }
+        @media (min-width: 769px) {
+            .banner {
+                min-height: 300px; /* Adjusted for larger screens */
             }
         }
     </style>
