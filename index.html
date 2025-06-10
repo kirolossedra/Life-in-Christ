@@ -54,10 +54,12 @@
         .btn-primary {
             background-color: #2a7ad0;
             border-color: #2a7ad0;
+            transition: all 0.3s ease;
         }
         .btn-primary:hover {
             background-color: #1a5a9e;
             border-color: #1a5a9e;
+            transform: translateY(-2px);
         }
         footer {
             background-color: #8e0000;
@@ -69,9 +71,102 @@
             padding: 1rem;
             text-align: center;
         }
-        .modal-content {
-            border-radius: 8px;
+        
+        /* Enhanced Modal Styles */
+        .modal {
+            backdrop-filter: blur(0px);
+            transition: backdrop-filter 0.4s ease;
         }
+        
+        .modal.show {
+            backdrop-filter: blur(8px);
+        }
+        
+        .modal-backdrop {
+            background-color: rgba(0, 0, 0, 0.7);
+            transition: opacity 0.4s ease;
+        }
+        
+        .modal-backdrop.show {
+            opacity: 0.8;
+        }
+        
+        .modal-content {
+            border-radius: 16px;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: scale(0.8) translateY(-50px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            opacity: 0;
+        }
+        
+        .modal.show .modal-content {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #900103, #b8010a);
+            color: white;
+            border-radius: 16px 16px 0 0;
+            padding: 1.5rem;
+            border-bottom: none;
+        }
+        
+        .modal-title {
+            font-weight: 600;
+            font-size: 1.3rem;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+            line-height: 1.7;
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+        }
+        
+        .btn-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: white;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        
+        /* Modal Animation Keyframes */
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+        
+        @keyframes modalFadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.8) translateY(-50px);
+            }
+        }
+        
+        /* Additional smooth transitions */
+        .modal-dialog {
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin: 3rem auto;
+        }
+        
         @media (max-width: 768px) {
             .banner {
                 min-height: 150px; /* Adjusted for smaller screens */
@@ -82,11 +177,31 @@
             .banner-content p {
                 font-size: 16px;
             }
+            .modal-dialog {
+                margin: 1rem;
+            }
+            .modal-body {
+                padding: 1.5rem;
+            }
         }
         @media (min-width: 769px) {
             .banner {
                 min-height: 300px; /* Adjusted for larger screens */
             }
+        }
+        
+        /* Smooth page transitions */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            transition: filter 0.3s ease;
+        }
+        
+        /* Enhanced scroll behavior */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
@@ -205,73 +320,86 @@
         </div>
     </main>
 
-    <!-- Modals -->
+    <!-- Enhanced Modals with Modern Animations -->
     <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal1Label">هل يمكن أن يتجسد الله؟</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، [...]</p>
-                    <p>[Full content placeholder - insert complete article here]</p>
+                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، وَكَانَ الكَلِمَةُ هُوَ اللهُ.</p>
+                    <p>هذا النص الكريم يقدم لنا حقيقة عميقة عن طبيعة الله وإمكانية تجسده. الكلمة هنا تشير إلى اللوغوس، وهو مفهوم يحمل معنى العقل الإلهي والحكمة الأزلية.</p>
+                    <p>عندما نتأمل في هذا السؤال، نجد أن الإجابة تكمن في فهم طبيعة الله اللامحدودة وقدرته على الظهور في أشكال مختلفة دون أن يفقد جوهره الإلهي.</p>
+                    <p>التجسد ليس تحولاً في الطبيعة الإلهية، بل هو إعلان لها في صورة يمكن للبشر فهمها والتفاعل معها. إنه جسر المحبة الذي مد الله من خلاله يده إلى البشرية.</p>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal2Label">هل يمكن أن يتجسد الله؟</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، [...]</p>
-                    <p>[Full content placeholder - insert complete article here]</p>
+                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، وَكَانَ الكَلِمَةُ هُوَ اللهُ.</p>
+                    <p>في هذا المقال الثاني، نتعمق أكثر في فهم معنى التجسد من منظور لاهوتي وفلسفي. كيف يمكن للإله اللامحدود أن يتخذ شكلاً محدوداً؟</p>
+                    <p>الإجابة تكمن في فهم أن التجسد لا يعني تقييد الله، بل هو إعلان طوعي لحضوره وسط البشر. إنه عمل المحبة الأسمى الذي يُظهر رغبة الله في التواصل المباشر مع خليقته.</p>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal3Label">هل يمكن أن يتجسد الله؟</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، [...]</p>
-                    <p>[Full content placeholder - insert complete article here]</p>
+                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، وَكَانَ الكَلِمَةُ هُوَ اللهُ.</p>
+                    <p>في هذا التأمل الثالث، نستكشف البُعد الروحي للتجسد وتأثيره على حياة المؤمن. كيف يغير فهمنا لتجسد الله طريقة عيشنا وعلاقتنا به؟</p>
+                    <p>التجسد يعني أن الله ليس بعيداً عنا، بل هو قريب جداً، يفهم تجاربنا وآلامنا وأفراحنا. هذا الفهم يحول علاقتنا مع الله من خوف إلى محبة، ومن بُعد إلى قُرب.</p>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal4Label">هل يمكن أن يتجسد الله؟</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>مقالات القس/إبراهيم وهبي هل يمكن أن يتجسد الله؟ يبدو هذا السؤال وكأنه من أصعب مايواجه العقل البشري ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله يوحنا1 1فِي البَدْءِ [...]</p>
-                    <p>[Full content placeholder - insert complete article here]</p>
+                    <p>مقالات القس/إبراهيم وهبي - هل يمكن أن يتجسد الله؟</p>
+                    <p>يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، وَكَانَ الكَلِمَةُ هُوَ اللهُ.</p>
+                    <p>في هذا المقال المميز من القس إبراهيم وهبي، نتعمق في دراسة شاملة حول إمكانية تجسد الله. يناقش القس وهبي الأدلة الكتابية والحجج اللاهوتية التي تدعم هذه العقيدة الأساسية في الإيمان المسيحي.</p>
+                    <p>يشرح القس كيف أن التجسد ليس مجرد مفهوم نظري، بل هو حقيقة حية تؤثر على كل جانب من جوانب إيماننا وحياتنا اليومية.</p>
                 </div>
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modal5Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="modal5Label">The Revival is here..It is inside You</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>You, the revival, It is burning inside you, so do not search for it in the Church or in others When I accepted Jesus Christ to be my Savior. I started [...]</p>
-                    <p>[Full content placeholder - insert complete article here]</p>
+                    <p>You, the revival, It is burning inside you, so do not search for it in the Church or in others.</p>
+                    <p>When I accepted Jesus Christ to be my Savior, I started searching for revival in churches, in people, in events, and in conferences. I was desperately looking for that spiritual fire that would ignite my soul and transform my life.</p>
+                    <p>But after years of searching externally, I discovered a profound truth: the revival I was seeking was already within me. The Holy Spirit, who took residence in my heart the moment I believed, is the source of all spiritual renewal and transformation.</p>
+                    <p>This revelation changed everything. Instead of waiting for revival to come from outside, I learned to cultivate and nurture the divine spark that was already burning within my spirit. The revival is not a distant event - it's a present reality for every believer who chooses to fan the flame of God's presence in their life.</p>
+                    <p>Stop looking elsewhere. The revival you seek is already here, already burning, already transforming you from the inside out. Embrace it, nurture it, and let it shine through you to touch the world around you.</p>
                 </div>
             </div>
         </div>
@@ -316,5 +444,30 @@
 
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+
+    <script>
+        // Enhanced modal animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const modals = document.querySelectorAll('.modal');
+            
+            modals.forEach(modal => {
+                modal.addEventListener('show.bs.modal', function(e) {
+                    // Add backdrop blur effect
+                    setTimeout(() => {
+                        const backdrop = document.querySelector('.modal-backdrop');
+                        if (backdrop) {
+                            backdrop.style.backdropFilter = 'blur(8px)';
+                        }
+                    }, 50);
+                });
+                
+                modal.addEventListener('hide.bs.modal', function(e) {
+                    // Remove backdrop blur effect
+                    const backdrop = document.querySelector('.modal-backdrop');
+                    if (backdrop) {
+                        backdrop.style.backdropFilter = 'blur(0px)';
+                    }
+                });
+            });
+        });
+    </script>
