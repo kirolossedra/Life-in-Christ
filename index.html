@@ -211,10 +211,27 @@
         html {
             scroll-behavior: smooth;
         }
+        /* Fix language toggle width on mobile */
+        .navbar-nav .form-select {
+            max-width: 150px;
+            width: auto;
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+        }
+        /* Ensure proper alignment in RTL */
+        @media (max-width: 768px) {
+            .navbar-nav .form-select {
+                max-width: 120px;
+                margin: 0.5rem;
+            }
+            .navbar-nav {
+                align-items: flex-start;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Header (unchanged) -->
+    <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark container">
             <a class="navbar-brand" href="https://www.lifeinchrist.ca/ar/">
@@ -266,7 +283,7 @@
         </nav>
     </header>
 
-    <!-- Banner (unchanged) -->
+    <!-- Banner -->
     <div class="banner">
         <div class="banner-content">
             <h1></h1>
@@ -352,7 +369,7 @@
         </div>
     </main>
 
-    <!-- Modals (unchanged for existing posts, added one for new post) -->
+    <!-- Modals -->
     <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -441,14 +458,14 @@
                 </div>
                 <div class="modal-body">
                     <p>هذا مثال لمقال جديد يمكن إضافته بسهولة. يمكنك ملء المحتوى هنا بنص المقال الكامل.</p>
-                    <p>استمر في إضافة المقالات بنفس الهيكلية: صورة، تاريخ، عنوان، وصف، وزر يرتبط بمودال جديد بنفس رقم المقال (مثل modal6, modal7, إلخ).</p>
+                    <p>استمر في إضافة المقالات بنفس الهيكلية: صورة، تاريخ، عنوان، وصف، وزر يرتبط بمودال جديد بنفس رقم المقال (مثل modal6, modal7، إلخ).</p>
                     <p>هذا النظام يضمن أن التنسيق يظل متسقًا بغض النظر عن عدد المقالات التي تضيفها.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer (unchanged) -->
+    <!-- Footer -->
     <footer>
         <div class="newsletter-section">
             <div class="container">
