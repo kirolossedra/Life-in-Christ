@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life In Christ LINC Ministry</title>
+    <title>Life In Christ LINC Ministriy</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -26,10 +26,10 @@
         }
         .banner {
             position: relative;
-            min-height: 200px;
+            min-height: 200px; /* Minimum height to ensure content is visible */
             background: url('https://lifeinchrist.ca/wp-content/uploads/2023/05/WhatsApp-Image-2023-05-15-at-11.19.23-AM-1.jpeg') no-repeat center center;
-            background-size: cover;
-            background-color: #f8f9fa;
+            background-size: contain; /* Ensures the entire image is visible */
+            background-color: #f8f9fa; /* Fallback color */
             width: 100%;
         }
         .banner-content {
@@ -45,44 +45,11 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            margin-bottom: 1.5rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 20px;
         }
         .blog-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-        }
-        .blog-item img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px 8px 0 0;
-        }
-        .blog-item .content {
-            flex-grow: 1;
-            padding: 1rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .blog-item .date {
-            font-size: 0.9rem;
-            color: #555;
-        }
-        .blog-item .dt {
-            font-weight: bold;
-            color: #900103;
-        }
-        .blog-item h2 {
-            font-size: 1.25rem;
-            margin: 0.5rem 0;
-        }
-        .blog-item .desc {
-            font-size: 0.95rem;
-            flex-grow: 1;
-            margin-bottom: 1rem;
         }
         .btn-primary {
             background-color: #2a7ad0;
@@ -104,21 +71,26 @@
             padding: 1rem;
             text-align: center;
         }
-        /* Modal Styles */
+        
+        /* Enhanced Modal Styles */
         .modal {
             backdrop-filter: blur(0px);
             transition: backdrop-filter 0.4s ease;
         }
+        
         .modal.show {
             backdrop-filter: blur(8px);
         }
+        
         .modal-backdrop {
             background-color: rgba(0, 0, 0, 0.7);
             transition: opacity 0.4s ease;
         }
+        
         .modal-backdrop.show {
             opacity: 0.8;
         }
+        
         .modal-content {
             border-radius: 16px;
             border: none;
@@ -127,10 +99,12 @@
             transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             opacity: 0;
         }
+        
         .modal.show .modal-content {
             transform: scale(1) translateY(0);
             opacity: 1;
         }
+        
         .modal-header {
             background: linear-gradient(135deg, #900103, #b8010a);
             color: white;
@@ -138,15 +112,18 @@
             padding: 1.5rem;
             border-bottom: none;
         }
+        
         .modal-title {
             font-weight: 600;
             font-size: 1.3rem;
         }
+        
         .modal-body {
             padding: 2rem;
             line-height: 1.7;
             background: linear-gradient(135deg, #ffffff, #f8f9fa);
         }
+        
         .btn-close {
             background: none;
             border: none;
@@ -155,10 +132,13 @@
             opacity: 0.8;
             transition: all 0.3s ease;
         }
+        
         .btn-close:hover {
             opacity: 1;
             transform: rotate(90deg);
         }
+        
+        /* Modal Animation Keyframes */
         @keyframes modalFadeIn {
             from {
                 opacity: 0;
@@ -169,6 +149,7 @@
                 transform: scale(1) translateY(0);
             }
         }
+        
         @keyframes modalFadeOut {
             from {
                 opacity: 1;
@@ -179,13 +160,16 @@
                 transform: scale(0.8) translateY(-50px);
             }
         }
+        
+        /* Additional smooth transitions */
         .modal-dialog {
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
             margin: 3rem auto;
         }
+        
         @media (max-width: 768px) {
             .banner {
-                min-height: 150px;
+                min-height: 150px; /* Adjusted for smaller screens */
             }
             .banner-content h1 {
                 font-size: 24px;
@@ -199,22 +183,30 @@
             .modal-body {
                 padding: 1.5rem;
             }
-            .blog-item img {
-                height: 150px;
-            }
         }
         @media (min-width: 769px) {
             .banner {
-                min-height: 300px;
+                min-height: 300px; /* Adjusted for larger screens */
             }
         }
+        
+        /* Smooth page transitions */
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            transition: filter 0.3s ease;
+        }
+        
+        /* Enhanced scroll behavior */
         html {
             scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <!-- Header (unchanged) -->
+    <!-- Header -->
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark container">
             <a class="navbar-brand" href="https://www.lifeinchrist.ca/ar/">
@@ -237,7 +229,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">ال ARK</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="https://lifeinchrist.ca/ar/ar-refugeesponsorshipprogram/">برنامج كفالة اللاجئين</a></li>
+                            <li><a class="dropdown-item" href="https://lifeinchrist.ca/ar/ar-refugeesponsorshipprogram/">برنامج كفالة الالجئين</a></li>
                             <li><a class="dropdown-item" href="https://lifeinchrist.ca/ar/ar-tnbp/">برنامج البدايات الجديدة</a></li>
                         </ul>
                     </li>
@@ -266,7 +258,7 @@
         </nav>
     </header>
 
-    <!-- Banner (unchanged) -->
+    <!-- Banner -->
     <div class="banner">
         <div class="banner-content">
             <h1></h1>
@@ -275,84 +267,60 @@
     </div>
 
     <!-- Main Content -->
-    <main class="container my-4">
+    <main class="container my-5">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
             <!-- Blog Item 1 -->
             <div class="col">
-                <div class="blog-item">
-                    <img src="https://lifeinchrist.ca/wp-content/uploads/2022/08/article-img.png" class="img-fluid" alt="Article Image">
-                    <div class="content">
-                        <p class="date"><span class="dt">02</span> أغسطس 2022</p>
-                        <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
-                        <p class="desc">يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، […]</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">Read More</button>
-                    </div>
+                <div class="blog-item p-3">
+                    <img src="article-img.png" class="img-fluid mb-3" alt="Article Image">
+                    <p class="date"><span class="dt">02</span> أغسطس 2022</p>
+                    <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
+                    <p class="desc">يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، […]</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal1">Read More</button>
                 </div>
             </div>
             <!-- Blog Item 2 -->
             <div class="col">
-                <div class="blog-item">
-                    <img src="https://lifeinchrist.ca/wp-content/uploads/2022/08/article-img.png" class="img-fluid" alt="Article Image">
-                    <div class="content">
-                        <p class="date"><span class="dt">02</span> أغسطس 2022</p>
-                        <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
-                        <p class="desc">يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، […]</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal2">Read More</button>
-                    </div>
+                <div class="blog-item p-3">
+                    <img src="article-img.png" class="img-fluid mb-3" alt="Article Image">
+                    <p class="date"><span class="dt">02</span> أغسطس 2022</p>
+                    <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
+                    <p class="desc">يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، […]</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal2">Read More</button>
                 </div>
             </div>
             <!-- Blog Item 3 -->
             <div class="col">
-                <div class="blog-item">
-                    <img src="https://lifeinchrist.ca/wp-content/uploads/2022/07/no-image-placeholder.png" class="img-fluid" alt="Article Image">
-                    <div class="content">
-                        <p class="date"><span class="dt">29</span> يوليو 2022</p>
-                        <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
-                        <p class="desc">يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، […]</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">Read More</button>
-                    </div>
+                <div class="blog-item p-3">
+                    <p class="date"><span class="dt">29</span> يوليو 2022</p>
+                    <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
+                    <p class="desc">يبدو هذا السؤال وكأنه من أصعب ما يواجه العقل البشري، ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله. يوحنا1 1فِي البَدْءِ كَانَ الكَلِمَةُ مَوْجُودًا، وَكَانَ الكَلِمَةُ مَعَ اللهِ، […]</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal3">Read More</button>
                 </div>
             </div>
             <!-- Blog Item 4 -->
             <div class="col">
-                <div class="blog-item">
-                    <img src="https://lifeinchrist.ca/wp-content/uploads/2022/07/no-image-placeholder.png" class="img-fluid" alt="Article Image">
-                    <div class="content">
-                        <p class="date"><span class="dt">25</span> يوليو 2022</p>
-                        <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
-                        <p class="desc">مقالات القس/إبراهيم وهبي هل يمكن أن يتجسد الله؟ يبدو هذا السؤال وكأنه من أصعب مايواجه العقل البشري ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله يوحنا1 1فِي البَدْءِ […]</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal4">Read More</button>
-                    </div>
+                <div class="blog-item p-3">
+                    <p class="date"><span class="dt">25</span> يوليو 2022</p>
+                    <h2 class="h4">هل يمكن أن يتجسد الله؟</h2>
+                    <p class="desc">مقالات القس/إبراهيم وهبي هل يمكن أن يتجسد الله؟ يبدو هذا السؤال وكأنه من أصعب مايواجه العقل البشري ولكن لنبدأ الإجابة بقراءة هذا الجزء الغالي من كلمة الله يوحنا1 1فِي البَدْءِ […]</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal4">Read More</button>
                 </div>
             </div>
             <!-- Blog Item 5 -->
             <div class="col">
-                <div class="blog-item">
-                    <img src="https://lifeinchrist.ca/wp-content/uploads/2020/11/AdobeStock_242424484-scaled.jpeg" class="img-fluid" alt="Article Image">
-                    <div class="content">
-                        <p class="date"><span class="dt">18</span> نوفمبر 2020</p>
-                        <h2 class="h4">The Revival is here..It is inside You</h2>
-                        <p class="desc">You, the revival, It is burning inside you, so do not search for it in the Church or in others When I accepted Jesus Christ to be my Savior. I started […]</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal5">Read More</button>
-                    </div>
-                </div>
-            </div>
-            <!-- Example Additional Blog Item (for scalability) -->
-            <div class="col">
-                <div class="blog-item">
-                    <img src="https://lifeinchrist.ca/wp-content/uploads/2022/07/no-image-placeholder.png" class="img-fluid" alt="Article Image">
-                    <div class="content">
-                        <p class="date"><span class="dt">15</span> أكتوبر 2022</p>
-                        <h2 class="h4">عنوان مقال جديد</h2>
-                        <p class="desc">هذا مثال لمقال جديد يمكن إضافته بسهولة. يحافظ الهيكل على التناسق في العرض مع الصورة، التاريخ، العنوان، والوصف. يمكنك إضافة المزيد من المقالات بنفس الطريقة.</p>
-                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal6">Read More</button>
-                    </div>
+                <div class="blog-item p-3">
+                    <img src="https://lifeinchrist.ca/wp-content/uploads/2020/11/AdobeStock_242424484-scaled.jpeg" class="img-fluid mb-3" alt="Article Image">
+                    <p class="date"><span class="dt">18</span> نوفمبر 2020</p>
+                    <h2 class="h4">The Revival is here..It is inside You</h2>
+                    <p class="desc">You, the revival, It is burning inside you, so do not search for it in the Church or in others When I accepted Jesus Christ to be my Savior. I started […]</p>
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal5">Read More</button>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Modals (unchanged for existing posts, added one for new post) -->
+    <!-- Enhanced Modals with Modern Animations -->
     <div class="modal fade" id="modal1" tabindex="-1" aria-labelledby="modal1Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -369,6 +337,7 @@
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal2" tabindex="-1" aria-labelledby="modal2Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -384,6 +353,7 @@
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal3" tabindex="-1" aria-labelledby="modal3Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -399,6 +369,7 @@
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal4" tabindex="-1" aria-labelledby="modal4Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -415,6 +386,7 @@
             </div>
         </div>
     </div>
+    
     <div class="modal fade" id="modal5" tabindex="-1" aria-labelledby="modal5Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
@@ -432,23 +404,8 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="modal6" tabindex="-1" aria-labelledby="modal6Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-scrollable modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modal6Label">عنوان مقال جديد</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>هذا مثال لمقال جديد يمكن إضافته بسهولة. يمكنك ملء المحتوى هنا بنص المقال الكامل.</p>
-                    <p>استمر في إضافة المقالات بنفس الهيكلية: صورة، تاريخ، عنوان، وصف، وزر يرتبط بمودال جديد بنفس رقم المقال (مثل modal6, modal7, إلخ).</p>
-                    <p>هذا النظام يضمن أن التنسيق يظل متسقًا بغض النظر عن عدد المقالات التي تضيفها.</p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Footer (unchanged) -->
+    <!-- Footer -->
     <footer>
         <div class="newsletter-section">
             <div class="container">
@@ -464,22 +421,22 @@
         <div class="container mt-4">
             <div class="row text-center">
                 <div class="col-12 mb-3">
-                    <h3>يومياً آية من الكتاب المقدس</h3>
-                    <div id="dailyVersesWrapper"></div>
-                    <script async defer src="https://dailyverses.net/get/verse.js?language=ar"></script>
+                    <h3>يوميا آية الكتاب المقدس</h3>
+                    <p>لِلْإِنْسَانِ فَرَحٌ بِجَوَابِ فَمِهِ، وَٱلْكَلِمَةُ فِي وَقْتِهَا مَا أَحْسَنَهَا!</p>
+                    <p><a href="https://dailyverses.net/ar/2025/6/9" target="_blank">أَمْثَالٍ ١٥:‏٢٣</a></p>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2"><a href="https://www.lifeinchrist.ca/ar/ar-about/">عن</a><ul class="list-unstyled"><li><a href="https://www.lifeinchrist.ca/ar/ar-thefounder/">المؤسس</a></li><li><a href="https://www.lifeinchrist.ca/ar/ar-theteam/">الفريق</a></li><li><a href="https://www.lifeinchrist.ca/ar/ar-mediagallery/">أرشيف الصور</a></li></ul></div>
                 <div class="col-md-1"><a href="https://www.lifeinchrist.ca/ar/ar-events/">الأحداث</a></div>
-                <div class="col-md-2"><a href="https://www.lifeinchrist.ca/ar/ar-theark/">ال ARK</a><ul class="list-unstyled"><li><a href="https://www.lifeinchrist.ca/ar/ar-refugeesponsorshipprogram/">برنامج كفالة اللاجئين</a></li><li><a href="https://www.lifeinchrist.ca/ar/ar-tnbp/">برنامج البدايات الجديدة</a></li></ul></div>
+                <div class="col-md-2"><a href="https://www.lifeinchrist.ca/ar/ar-theark/">ال ARK</a><ul class="list-unstyled"><li><a href="https://www.lifeinchrist.ca/ar/ar-refugeesponsorshipprogram/">برنامج كفالة الالجئين</a></li><li><a href="https://www.lifeinchrist.ca/ar/ar-tnbp/">برنامج البدايات الجديدة</a></li></ul></div>
                 <div class="col-md-3"><a href="https://www.lifeinchrist.ca/ar/ar-mps/">مدرسة الكتاب المقدس</a><ul class="list-unstyled"><li><a href="https://www.lifeinchrist.ca/ar/ar-firstcohort/">المجموعة الأولى</a></li></ul></div>
                 <div class="col-md-1"><a href="https://www.lifeinchrist.ca/ar/ar-articles/">مقالات</a></div>
                 <div class="col-md-2"><a href="https://www.lifeinchrist.ca/ar/ar-getinvolved/">شاركنا</a></div>
                 <div class="col-md-1"><a href="https://www.lifeinchrist.ca/ar/ar-contact/">اتصال</a></div>
             </div>
             <div class="text-center mt-4">
-                <p>©2025 Life In Christ LINC Ministry. كل الحقوق محفوظة.<br>جميع التبرعات لخدمة الحياة في المسيح لينك مؤهلة للحصول على إيصال ضريبي في كندا.<br>رقم التسجيل الخيري: 808203285RR0001</p>
+                <p>©2025 Life In Christ LINC Ministriy. كل الحقوق محفوظة.<br>جميع التبرعات لخدمة الحياة في المسيح لينك مؤهلة للحصول على إيصال ضريبي في كندا.<br>رقم التسجيل الخيري: 808203285RR0001</p>
                 <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=AVUD7RDUZTWYE" target="_blank"><img src="Donate-hover.png" alt="Paypal Link" style="max-width: 200px;"></a>
             </div>
         </div>
@@ -492,8 +449,10 @@
         // Enhanced modal animations
         document.addEventListener('DOMContentLoaded', function() {
             const modals = document.querySelectorAll('.modal');
+            
             modals.forEach(modal => {
                 modal.addEventListener('show.bs.modal', function(e) {
+                    // Add backdrop blur effect
                     setTimeout(() => {
                         const backdrop = document.querySelector('.modal-backdrop');
                         if (backdrop) {
@@ -501,7 +460,9 @@
                         }
                     }, 50);
                 });
+                
                 modal.addEventListener('hide.bs.modal', function(e) {
+                    // Remove backdrop blur effect
                     const backdrop = document.querySelector('.modal-backdrop');
                     if (backdrop) {
                         backdrop.style.backdropFilter = 'blur(0px)';
@@ -510,5 +471,3 @@
             });
         });
     </script>
-</body>
-</html>
